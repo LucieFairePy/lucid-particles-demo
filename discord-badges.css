@@ -1,0 +1,72 @@
+.badge-staff {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/discordstaff.svg');
+}
+
+.badge-partner {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/partneredserverowner.svg');
+}
+
+.badge-hypesquad {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/hypesquadevents.svg');
+}
+
+.badge-hypesquad_bravery {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/hypesquadbravery.svg');
+}
+
+.badge-hypesquad_brilliance {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/hypesquadbrilliance.svg');
+}
+
+.badge-hypesquad_balance {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/hypesquadbalance.svg');
+}
+
+.badge-bug_hunter_level_1 {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/bughunter1.svg');
+}
+
+.badge-bug_hunter_level_2 {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/bughunter2.svg');
+}
+
+.badge-verified_bot_developer {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/activedeveloper.svg');
+}
+
+.badge-early_supporter {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/earlysupporter.svg');
+}
+
+.badge-nitro {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/nitro.svg');
+}
+
+.badge-server_boosting {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/boosts/discordboost1.svg');
+}
+
+.badge-moderator_programs_alumni {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/discordmod.svg');
+}
+
+.badge-active_developer {
+  background-image: url('https://cdn.jsdelivr.net/gh/mezotv/discord-badges@main/assets/activedeveloper.svg');
+}
+
+.badge-staff::before,
+.badge-partner::before,
+.badge-hypesquad::before,
+.badge-hypesquad_bravery::before,
+.badge-hypesquad_brilliance::before,
+.badge-hypesquad_balance::before,
+.badge-bug_hunter_level_1::before,
+.badge-bug_hunter_level_2::before,
+.badge-verified_bot_developer::before,
+.badge-early_supporter::before,
+.badge-nitro::before,
+.badge-server_boosting::before,
+.badge-moderator_programs_alumni::before,
+.badge-active_developer::before {
+  content: none;
+}
