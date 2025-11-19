@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucifer.exe - Particle Animation Demo</title>
+  <meta name="description" content="Interactive particle animation demo by Lucifer.exe">
+  <meta name="author" content="Lucifer.exe">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lucifer.exe - Particle Animation">
+  <meta property="og:description" content="Interactive particle animation demo">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+  
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <canvas id="scene"></canvas>
+
+  <div class="content-wrapper">
+    
+    <section class="hero">
+      <div class="hero-content">
+        <div class="scroll-indicator">
+          <i class="fas fa-chevron-down"></i>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <h2>About This Demo</h2>
+        <p>This interactive particle animation responds to your mouse movements and creates dynamic visual effects. 
+           The particles form text and react to user interaction, creating an engaging experience.</p>
+        
+        <div class="features">
+          <div class="feature-card">
+            <i class="fas fa-magic"></i>
+            <h3>Interactive</h3>
+            <p>Particles respond to mouse movement</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-cog"></i>
+            <h3>Configurable</h3>
+            <p>Easy to customize via config.js</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Responsive</h3>
+            <p>Works on all devices</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="discord-section">
+      <div class="container-discord">
+        
+        <div class="card nitro-card">
+          <div class="card-header">
+            <div id="discord-banner" style="background: url('./assets/img/banner.gif')" class="banner-img"></div>
+          </div>
+          <div class="card-body">
+            <div class="profile-header">
+              <div class="profil-logo">
+                <img id="discord-avatar" src="./assets/img/logo_blue.png" />
+              </div>
+              <div class="badges-container" id="badges-container">
+              </div>
+            </div>
+            <div class="profile-body">
+              <div class="username">
+                <span id="display-name">Lucifer.exe</span><span id="username-tag">#0000</span>
+                <div class="badge" id="user-badge">Random guy</div>
+              </div>
+              <hr />
+              <div class="basic-infos">
+                <div class="category-title">About Me</div>
+                <p id="about-me-text">
+                  Your <u>about me</u> <b>description</b>.
+                </p>
+              </div>
+              <div class="basic-infos">
+                <div class="category-title">Member Since</div>
+                <p id="member-since-date">Jun 14, 2020</p>
+              </div>
+              <div class="roles">
+                <div class="category-title">Roles</div>
+                <div class="roles-list" id="roles-list">
+                  <!-- Roles will be loaded from config.js -->
+                </div>
+              </div>
+              <div class="note">
+                <div class="category-title">Note</div>
+                <textarea id="note-textarea" placeholder="Click to add a note" readonly></textarea>
+              </div>
+              <div class="message">
+                <input type="text" id="message-input" placeholder="Send a message to @Lucifer.py" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 <span id="footer-author">Lucifer.exe</span>. Made with <i class="fas fa-heart"></i> and JavaScript</p>
+        <p class="footer-links">
+          <a href="#" id="github-footer-link" target="_blank">
+            <i class="fab fa-github"></i> <span id="github-footer-text">View on GitHub</span>
+          </a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="script-add.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!CONFIG.personal) return;
+
+      const p = CONFIG.personal;
+
+      if (p.banner) {
+        document.getElementById('discord-banner').style.background = `url('${p.banner}')`;
+      }
+
+      if (p.avatar) {
+        document.getElementById('discord-avatar').src = p.avatar;
+      }
+
+      document.getElementById('display-name').textContent = p.name || 'Username';
+      const usernameTag = p.discriminator ? `#${p.discriminator}` : '';
+      document.getElementById('username-tag').textContent = usernameTag;
+      document.getElementById('username-tag').style.display = usernameTag ? 'inline' : 'none';
+
+      if (p.customBadge) {
+        document.getElementById('user-badge').textContent = p.customBadge;
+        document.getElementById('user-badge').style.display = 'inline-block';
+      } else {
+        document.getElementById('user-badge').style.display = 'none';
+      }
+
+      const aboutText = document.getElementById('about-me-text');
+      if (p.bio) {
+        aboutText.innerHTML = p.bio.replace(/\n/g, '<br>');
+      }
+
+      if (p.memberSince) {
+        document.getElementById('member-since-date').textContent = p.memberSince;
+      }
+
+      if (p.badges && p.badges.length > 0) {
+        const badgesContainer = document.getElementById('badges-container');
+        badgesContainer.innerHTML = '';
+        
+        p.badges.forEach(badge => {
+          const badgeEl = document.createElement('div');
+          badgeEl.className = 'badge-item';
+          
+          if (typeof badge === 'string') {
+            const badgeImg = `./assets/img/badges/${badge}.webp`;
+            badgeEl.innerHTML = `
+              <img src="${badgeImg}" alt="${badge}" onerror="this.style.display='none'" />
+              <div class="tooltip tooltip-up">${getBadgeTooltip(badge)}</div>
+            `;
+          } else if (badge.type === 'custom' && badge.image) {
+            badgeEl.innerHTML = `
+              <img src="${badge.image}" alt="${badge.tooltip || 'Badge'}" />
+              <div class="tooltip tooltip-up">${badge.tooltip || 'Custom Badge'}</div>
+            `;
+          }
+          
+          badgesContainer.appendChild(badgeEl);
+        });
+      }
+
+      if (p.roles && p.roles.length > 0) {
+        const rolesList = document.getElementById('roles-list');
+        rolesList.innerHTML = '';
+        
+        p.roles.forEach(role => {
+          const roleEl = document.createElement('div');
+          roleEl.className = 'role';
+          roleEl.innerHTML = `
+            <div class="role-color" style="background: ${role.color}"></div>
+            <p>${role.name}</p>
+          `;
+          rolesList.appendChild(roleEl);
+        });
+        
+        const addRoleEl = document.createElement('div');
+        addRoleEl.className = 'role role-add';
+        addRoleEl.innerHTML = '<div class="role-add-text">+</div>';
+        rolesList.appendChild(addRoleEl);
+      }
+
+      if (p.note) {
+        document.getElementById('note-textarea').value = p.note;
+      }
+
+      document.getElementById('message-input').placeholder = `Send a message to @${p.username || p.name}`;
+
+      document.getElementById('footer-author').textContent = p.name || 'Lucifer.exe';
+      
+      const githubLink = document.getElementById('github-footer-link');
+      if (p.portfolio) {
+        githubLink.href = p.portfolio;
+      }
+    });
+
+    function getBadgeTooltip(badgeType) {
+      const tooltips = {
+        'bravery': 'HypeSquad Bravery',
+        'brilliance': 'HypeSquad Brilliance',
+        'balance': 'HypeSquad Balance',
+        'nitro': 'Discord Nitro',
+        'boost': 'Server Boosting',
+        'partner': 'Partnered Server Owner',
+        'staff': 'Discord Staff',
+        'early_supporter': 'Early Supporter',
+        'bug_hunter': 'Bug Hunter',
+        'active_developer': 'Active Developer'
+      };
+      return tooltips[badgeType] || badgeType;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const badges = document.querySelectorAll('.badge-item');
+      badges.forEach(badge => {
+        badge.addEventListener('mouseenter', function() {
+          const tooltip = this.querySelector('.tooltip');
+          if (tooltip) tooltip.style.transform = 'scale(1)';
+        });
+        badge.addEventListener('mouseleave', function() {
+          const tooltip = this.querySelector('.tooltip');
+          if (tooltip) tooltip.style.transform = 'scale(0)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
