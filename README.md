@@ -39,7 +39,7 @@ This project aims to enhance user engagement through visually appealing, lightwe
 ---
 
 ## Demo
-Check out the live demo [here](https://luciefairepy.github.io/lucid-particles-demo/).
+Check out the live demo <a href="https://luciefairepy.github.io/lucid-particles-demo/" target="_blank">here</a>.
 
 ---
 
