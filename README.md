@@ -19,8 +19,6 @@
 
 </div>
 
----
-
 ## 🌟 Overview
 
 An interactive particle animation demo featuring authentic Discord profile card integration. Built with vanilla JavaScript and HTML5 Canvas, this project showcases dynamic particle text rendering that responds to user interaction, combined with Sybrax's pixel-perfect Discord card design.
