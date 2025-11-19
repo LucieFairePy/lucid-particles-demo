@@ -213,25 +213,33 @@ banner: 'https://i.imgur.com/your-banner.gif'
 
 ## 📜 License
 
-This project is licensed under **CC BY-NC-SA 4.0** - No commercial use allowed.
+This project is licensed under the **GNU General Public License v3.0**.
 
-[![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-**You can:**
-- ✅ Use for personal projects
-- ✅ Modify and adapt
-- ✅ Share with others
+### What this means:
 
-**You must:**
+**You CAN:**
+- ✅ Use this code for personal projects
+- ✅ Modify and adapt the code
+- ✅ Use commercially **IF** you share your source code
+
+**You MUST:**
 - 📝 Give credit to Lucifer.exe
-- 🚫 Not use commercially
-- ♻️ Share modifications under same license
+- 🔓 Share your source code if you distribute
+- 📄 Keep the same GPL v3 license
 
-See [LICENSE](./LICENSE) for details.
+**You CANNOT:**
+- 🚫 Make proprietary/closed-source versions
+- 🚫 Remove copyright notices
+
+This ensures the code stays free and open for everyone! 🎉
+
+See [LICENSE](./LICENSE) for full legal text.
 
 ---
 
-## 🙏 Credits
+### 🙏 Additional Credits
 
 - **Particle Engine** - Created by [Lucifer.exe](https://github.com/LucieFairePy)
 - **Discord Card** - Based on [Sybrax's Discord-User-Card](https://github.com/Sybrax/Discord-User-Card)
