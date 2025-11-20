@@ -55,7 +55,7 @@ const CONFIG = {
     
     discord: 'Lucifer.py',
     github: 'https://github.com/LucieFairePy',
-    portfolio: 'https://github.com/LucieFairePy/particle-animation',  // Link for "View on GitHub" button
+    portfolio: 'https://github.com/LucieFairePy/lucid-particles-demo',  // Link for "View on GitHub" button
     
     memberSince: 'Oct 11, 2020',
     
